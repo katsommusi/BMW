@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BMW | Services</title>
+  <link rel="stylesheet" href="style.css" />
+
+    
+</head>
+<body>
+  <header class="header">
+    <div class="container header-flex">
+      <div class="nav-left">
+        <nav>
+          <ul class="nav-list">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="models.html">Models</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-right">
+        <img src="logo.jpg" alt="BMW Logo" class="logo" />
+      </div>
+    </div>
+  </header>
+
+  <section class="services-section">
+    <h2 class="section-title">BMW Services</h2>
+    <div class="services-grid">
+      <div class="service-card" onclick="showServiceDetail('Maintenance')">
+        <img src="images (1).jpeg" alt="Maintenance">
+        <h3>Maintenance</h3>
+        <p>Comprehensive service plans and regular checkups for optimal performance.</p>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('Repairs')">
+        <img src="images (3).jpeg" alt="Repairs">
+        <h3>Repairs</h3>
+        <p>Certified BMW mechanics for any repairs — fast and reliable.</p>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('Diagnostics')">
+        <img src="images (2).jpeg" alt="Diagnostics">
+        <h3>Diagnostics</h3>
+        <p>Advanced diagnostic systems for accurate and quick issue detection.</p>
+      </div>
+      <div class="service-card" onclick="showServiceDetail('Detailing')">
+        <img src="download (1).jpeg" alt="Detailing">
+        <h3>Detailing</h3>
+        <p>Premium car detailing to keep your BMW looking brand new.</p>
+      </div>
+    </div>
+  </section>
+
+  <div id="serviceModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Service Title</h3>
+      <p id="modalDescription">More information about the selected service will appear here.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 BMW. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showServiceDetail(serviceName) {
+      const modal = document.getElementById("serviceModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDescription = document.getElementById("modalDescription");
+
+      const serviceDetails = {
+        "Maintenance": "Our certified BMW service technicians will ensure your vehicle stays in top condition with regular maintenance plans.",
+        "Repairs": "From minor fixes to major overhauls, our BMW service centers offer professional repairs with genuine parts.",
+        "Diagnostics": "Cutting-edge diagnostics technology helps detect issues early and ensure smooth performance.",
+        "Detailing": "We offer interior and exterior detailing using BMW-approved materials and techniques for a pristine finish."
+      };
+
+      modalTitle.textContent = serviceName;
+      modalDescription.textContent = serviceDetails[serviceName];
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("serviceModal");
+      modal.classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
